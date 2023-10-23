@@ -31,8 +31,8 @@ class Rover {
                console.log(arrResults[i].roverStatus)
          }
       }
-      let messageHome = {'message' : message.name , results : arrResults};
-      return (messageHome)
+      let MessageHome = {'message' : message.name , results : arrResults};
+      return (MessageHome)
       }else console.log('not a valid message');
       
       }
