@@ -28,10 +28,10 @@ class Rover {
          }else if(message.commands[i].commandType === 'STATUS_CHECK'){
                let Roverstatus = {mode : this.mode, generatorWatts : this.generatorWatts, position : this.position};   
                arrResults[i] = {completed : true, roverStatus : Roverstatus};
-               //console.log(arrResults[i].roverStatus)
+               console.log(arrResults[i].roverStatus)
          }
       }
-      let MessageHome = {message : message.name , results : arrResults};
+      let MessageHome = {messageName : message.name , results : arrResults};
       return (MessageHome)
       }else console.log('not a valid message');
       
@@ -40,14 +40,6 @@ class Rover {
       
 }
 
-/*
-let commands = [new Command('MODE_CHANGE', 'LOW_POWER'), new Command('STATUS_CHECK')];
-let message = new Message('Test message with two commands', commands);
-let rover = new Rover(98382);    // Passes 98382 as the rover's position.
-let response = rover.receiveMessage(message);
-
-console.log(response);
-*/
 
 
 module.exports = Rover;
