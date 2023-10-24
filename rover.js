@@ -28,7 +28,7 @@ class Rover {
          }else if(message.commands[i].commandType === 'STATUS_CHECK'){
                let Roverstatus = {mode : this.mode, generatorWatts : this.generatorWatts, position : this.position};   
                arrResults[i] = {completed : true, roverStatus : Roverstatus};
-               console.log(arrResults[i].roverStatus)
+               //console.log(arrResults[i].roverStatus)
          }
       }
       let MessageHome = {message : message.name , results : arrResults};
