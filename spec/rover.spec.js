@@ -32,13 +32,13 @@ it("response returned by receiveMessage includes two results if two commands are
 });
 
 it("responds correctly to the status check command", ()=> {
-  let commands = new Command('STATUS_CHECK');
+  let commands = [new Command('MODE_CHANGE', 'LOW_POWER'), new Command('STATUS_CHECK')];
   let message = new Message('sending a status check', commands);
   let rover = new Rover(98382);    // Passes 98382 as the rover's position.
   let response = rover.receiveMessage(message);
-  expect(response.results.roverStatus.mode).toBe(rover.mode);
-  expect(response.results.roverStatus.position).toBe(rover.position);
-  expect(response.results.roverStatus.generatorWatts).toBe(rover.generatorWatts);
+  expect(response.results[1].roverStatus.position).toEqual(98382);
+  expect(response.results[1].roverStatus.mode).toEqual('LOW_POWER');
+  expect(response.results[1].roverStatus.generatorWatts).toEqual(110);
 });
 it("responds correctly to the mode change command", ()=> {
   let commands = [new Command('MODE_CHANGE', 'LOW_POWER'), new Command('MODE_CHANGE', 'NORMAL')];
