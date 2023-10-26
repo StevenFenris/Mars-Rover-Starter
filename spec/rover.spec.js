@@ -21,7 +21,7 @@ it("response returned by receiveMessage contains the name of the message", ()=> 
     let commands = [new Command('MODE_CHANGE', 'LOW_POWER')];
     let testMessage = new Message('Test Name', commands);
     let testMessageResponse = testRover.receiveMessage(testMessage);
-    expect(testMessageResponse.messageName).toBe('Test Name');
+    expect(testMessageResponse.message).toBe('Test Name');
   });
 it("response returned by receiveMessage includes two results if two commands are sent in the message", ()=> {
   let commands = [new Command('MODE_CHANGE', 'LOW_POWER'), new Command('STATUS_CHECK')];
